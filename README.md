@@ -1,4 +1,4 @@
-# IMR-Papas-Pizzerie
+# IMR-Papa's Pizzeria VR
 Team:
 -
 - Iacob Andrei
