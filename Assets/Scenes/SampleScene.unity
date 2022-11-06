@@ -381,10 +381,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -2383682664616223099, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8556fde207ab54546a7166b47bc26f6b, type: 2}
     - target: {fileID: 919132149155446097, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
       propertyPath: m_Name
       value: right hand
       objectReference: {fileID: 0}
+    - target: {fileID: 6128140153830238031, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: beda2cbfc6845f046a84b38929dbb0b4, type: 2}
     - target: {fileID: 8879528566716807029, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
       propertyPath: m_LocalPosition.y
       value: -8.2
@@ -1179,10 +1187,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -2383682664616223099, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8556fde207ab54546a7166b47bc26f6b, type: 2}
     - target: {fileID: 919132149155446097, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
       propertyPath: m_Name
       value: left hand
       objectReference: {fileID: 0}
+    - target: {fileID: 6128140153830238031, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: beda2cbfc6845f046a84b38929dbb0b4, type: 2}
     - target: {fileID: 8879528566716807029, guid: 917f9bb9b9b670142a8ee12d76880dee, type: 3}
       propertyPath: m_LocalPosition.y
       value: -8.2
@@ -4236,7 +4252,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0, b: 1, a: 1}
+      key0: {r: 1, g: 0, b: 0, a: 1}
       key1: {r: 0, g: 0, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
