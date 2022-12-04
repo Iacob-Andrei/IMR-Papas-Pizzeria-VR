@@ -2,7 +2,13 @@ fileFormatVersion: 2
 guid: 207c9d4a507005a429de460c3a7284e2
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -88723805440604879
+    second: Cylinder|CylinderAction
+  - first:
+      74: -6242241587816052237
+    second: Cylinder|CylinderAction.001
   externalObjects: {}
   materials:
     materialImportMode: 2
