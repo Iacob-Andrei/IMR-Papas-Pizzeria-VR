@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class IngredientPlacement : MonoBehaviour
 {
-    private List<string> used = new List<string>();
-
+    private Dictionary<string, int> used = new Dictionary<string, int>();
     private List<string> ingredients = new List<string>
-        { "salam", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
+        { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
     
     [SerializeField] Transform parent;
     
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.transform.parent.gameObject.name);
         if (ingredients.Contains(collision.gameObject.name))
-        {
-            used.Add(collision.gameObject.name);
-            Debug.Log(string.Join(", ", used));
-
+        {  
+            used[collision.gameObject.name] = used.ContainsKey(collision.gameObject.name) ?  used[collision.gameObject.name] + 1 : 1;
+            PrintUsedMap();
             collision.transform.SetParent(parent);
         }
+    }
+
+    private void PrintUsedMap()
+    {
+        string text = " ";
+        foreach (KeyValuePair<string, int> kvp in used)
+        {
+            text += string.Format("{0}: {1}, ", kvp.Key, kvp.Value);
+        } 
+        Debug.Log(text);
     }
 }

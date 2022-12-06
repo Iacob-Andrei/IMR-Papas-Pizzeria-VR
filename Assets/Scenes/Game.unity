@@ -285,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f1b2f88caac4f447875720e5c47622d, type: 3}
       propertyPath: m_Name
-      value: rosie (2)
+      value: tomato
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1b2f88caac4f447875720e5c47622d, type: 3}
@@ -441,7 +441,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &63285974
 PrefabInstance:
@@ -1037,7 +1037,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &140053107
 CapsuleCollider:
@@ -8356,7 +8356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6631e5ce77b23e743a1e63508691b87d, type: 3}
       propertyPath: m_Name
-      value: mushroom (2)
+      value: mushroom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6631e5ce77b23e743a1e63508691b87d, type: 3}
@@ -8512,7 +8512,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &967431436
 PrefabInstance:
@@ -9626,7 +9626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f1b2f88caac4f447875720e5c47622d, type: 3}
       propertyPath: m_Name
-      value: rosie (3)
+      value: tomato
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1b2f88caac4f447875720e5c47622d, type: 3}
@@ -9782,7 +9782,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &1267065566
 PrefabInstance:
@@ -9849,7 +9849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 207c9d4a507005a429de460c3a7284e2, type: 3}
       propertyPath: m_Name
-      value: salam
+      value: salami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 207c9d4a507005a429de460c3a7284e2, type: 3}
@@ -10058,7 +10058,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1898ff2fb551c6240bbc4950d0fa342c, type: 2}
     - target: {fileID: 919132149155446097, guid: fec18225f5ddce84bada373fbb95946b, type: 3}
       propertyPath: m_Name
-      value: maslina (2)
+      value: olive
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fec18225f5ddce84bada373fbb95946b, type: 3}
@@ -10214,7 +10214,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &1377690014
 PrefabInstance:
@@ -11039,7 +11039,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d4c19d5f2343f1045bb43823581e0f86, type: 2}
     - target: {fileID: 919132149155446097, guid: 861f05736b48c9444b383ca2b4b0cdfb, type: 3}
       propertyPath: m_Name
-      value: ardel (2)
+      value: pepper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 861f05736b48c9444b383ca2b4b0cdfb, type: 3}
@@ -11195,7 +11195,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1596484430
 GameObject:
@@ -12879,13 +12879,26 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!4 &1780901702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a6d6a9172638e5449121e1fa9e2dce7, type: 3}
   m_PrefabInstance: {fileID: 1762778878}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780901705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780901696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d48eb217bc3ae4f8675efe3356c907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1780901702}
 --- !u!1001 &1786240595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13819,7 +13832,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1938432611
 GameObject:
@@ -14014,7 +14027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac8e706c80cb88f46a864e5b9a3f0d1b, type: 3}
       propertyPath: m_Name
-      value: mozzarella (2)
+      value: mozzarella
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8e706c80cb88f46a864e5b9a3f0d1b, type: 3}

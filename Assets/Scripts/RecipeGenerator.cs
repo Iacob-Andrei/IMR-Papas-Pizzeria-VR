@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class RecipeGenerator : MonoBehaviour
 {
-        bool ok = true;
-        int curentDifference = 0;
+    bool ok = true;
+    int currentDifference = 0;
+    private Dictionary<string, int> recipe = new Dictionary<string, int>();
+    private List<string> ingredients = new List<string>
+        { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
 
     [SerializeField] Text recipeText; 
 
@@ -16,15 +19,14 @@ public class RecipeGenerator : MonoBehaviour
     }
 
     void Update()
-    {  
-        
+    {
         if (CountDownTimer.startingTime-CountDownTimer.currentTime>3)
             {
                 int normalizedValue = (int)(CountDownTimer.startingTime-CountDownTimer.currentTime);
-                if(normalizedValue != curentDifference)
+                if(normalizedValue != currentDifference)
                 {
                     ok = true;
-                    curentDifference = normalizedValue;
+                    currentDifference = normalizedValue;
                 }
 
                 if (normalizedValue%5 == 0 && ok == true)
@@ -33,21 +35,33 @@ public class RecipeGenerator : MonoBehaviour
                     ok = false;
                 }
             }
-               
     }
 
-    public string recipGenerator(){
-        string[] ingredients = new string[]{"salami","tomato","mushroom","mozzarella","pepper","olive"};
-        string recipeResult = "";
-        float randomNumber;
+    public string recipGenerator()
+    {
+        string recipeResult = "Recipe:\n";
+        recipe = new Dictionary<string, int>();
+        int randomNumber;
         foreach (string ing in ingredients){
             randomNumber = Random.Range(0, 3);
             if(randomNumber>0)
-               recipeResult+=randomNumber + "x" + ing + "\n";
+            {
+                recipeResult+=randomNumber + "x " + ing + "\n";
+                recipe[ing] = randomNumber;
+            }
         }
-
+        PrintUsedMap(recipe);
         return recipeResult;
-            
+    }
 
+
+    private void PrintUsedMap(Dictionary<string, int> recipe)
+    {
+        string text = " ";
+        foreach (KeyValuePair<string, int> kvp in recipe)
+        {
+            text += string.Format("{0}: {1}, ", kvp.Key, kvp.Value);
+        }
+        Debug.Log(text);
     }
 }
