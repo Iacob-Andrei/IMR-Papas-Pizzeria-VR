@@ -18,7 +18,7 @@ public class PizzaDetection : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("I'm the trigger, someone has left");
-        if (other.tag == "pizza")
+        if (other.name.Contains("pizza"))
         {
             Debug.Log("Pizza left");
         }

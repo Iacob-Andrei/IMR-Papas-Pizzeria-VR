@@ -55,7 +55,7 @@ public class RecipeGenerator : MonoBehaviour
                 recipe[ing] = randomNumber;
             }
         }
-        PrintUsedMap(recipe);
+        // PrintUsedMap(recipe);
 
         int tableToPlacePizza = Random.Range(0, 4);
         

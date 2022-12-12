@@ -16,7 +16,7 @@ public class IngredientPlacement : MonoBehaviour
         if (ingredients.Contains(collision.gameObject.name))
         {  
             used[collision.gameObject.name] = used.ContainsKey(collision.gameObject.name) ?  used[collision.gameObject.name] + 1 : 1;
-            PrintUsedMap();
+            // PrintUsedMap();
             collision.transform.SetParent(parent);
         }
     }
