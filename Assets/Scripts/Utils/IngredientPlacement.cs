@@ -18,6 +18,10 @@ public class IngredientPlacement : MonoBehaviour
             used[collision.gameObject.name] = used.ContainsKey(collision.gameObject.name) ?  used[collision.gameObject.name] + 1 : 1;
             // PrintUsedMap();
             collision.transform.SetParent(parent);
+
+            // freeze position
+            Rigidbody rigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            rigidbody.isKinematic = true;
         }
     }
 
