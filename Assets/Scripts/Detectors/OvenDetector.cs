@@ -1,42 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class OvenDetector : MonoBehaviour
+namespace Detectors
 {
-    public GameObject pizza;
-    private bool hasEntered = false;
-    public double time = 0;
-
-    private void OnTriggerEnter(Collider other)
+    public class OvenDetector : MonoBehaviour
     {
-        if (hasEntered == false)
+        private bool _hasEntered = false;
+        
+        public GameObject pizza;
+        
+        public double time = 0;
+
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.name.Contains("pizza"))
+            if (!_hasEntered)
             {
+                if (!other.name.Contains("pizza")) return;
+                
                 Debug.Log("Pizza in oven");
-                hasEntered = true;
+                _hasEntered = true;
             }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        // Debug.Log("I'm the trigger, someone has left");
-        if (other.name.Contains("pizza"))
+        private void OnTriggerExit(Collider other)
         {
-            hasEntered = false;
-            Debug.Log("Pizza left oven");
-            Debug.Log(time);
+            // Debug.Log("I'm the trigger, someone has left");
+            if (other.name.Contains("pizza"))
+            {
+                _hasEntered = false;
+                Debug.Log("Pizza left oven");
+                Debug.Log(time);
+            }
         }
-    }
 
-    void Update()
-    {
-        if(hasEntered)
+        void Update()
         {
-            time += 0.02;
-            // if time > limit: -> change color of blat
+            if(_hasEntered)
+            {
+                time += 0.02;
+                // if time > limit: -> change color of blat
+            }
         }
     }
 }

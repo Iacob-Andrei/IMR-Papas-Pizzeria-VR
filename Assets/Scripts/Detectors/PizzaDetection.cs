@@ -1,27 +1,40 @@
 using System.Collections;
-using System.Collections.Generic;
+using EndGame;
 using UnityEngine;
+using Utils;
 
-public class PizzaDetection : MonoBehaviour
+namespace Detectors
 {
-    public GameObject pizza;
-
-    private void OnTriggerEnter(Collider other)
+    public class PizzaDetection : MonoBehaviour
     {
-        Debug.Log("I'm the trigger, someone has enter");
-        if (other.name.Contains("pizza"))
+        private bool _hasEntered = false;
+
+        public GameObject pizza;
+        
+        private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Pizza entered");
+            if (_hasEntered) return;
+            
+            if (other.name.Contains("pizza"))
+            {
+                _hasEntered = true;
+                RecipeGenerator.UpdateNumberOfPizza(RecipeGenerator.numberOfPizza - 1);
+                
+                if (RecipeGenerator.numberOfPizza == 0)
+                {
+                    WaitSecondsBeforeSceneChange();
+                    EndGameSceneChanger.GetToFinalSceneWhenThereIsNoPizza();
+                }
+                
+                //Debug.Log($"Pizza trigger entered. {numberOfPizza} pizza remaining.");
+
+                // generate new recipe
+            }
+        }
+
+        private void WaitSecondsBeforeSceneChange()
+        {
+            StartCoroutine(Common.WaitFor2Seconds());
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("I'm the trigger, someone has left");
-        if (other.name.Contains("pizza"))
-        {
-            Debug.Log("Pizza left");
-        }
-    }
-
 }

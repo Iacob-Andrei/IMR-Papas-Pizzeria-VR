@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndGameSceneChanger : MonoBehaviour
+namespace EndGame
 {
-    void Update()
+    public class EndGameSceneChanger : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.L))
+
+        public static void GetToFinalSceneWhenThereIsNoPizza()
         {
             SceneManager.LoadScene(2);
         }

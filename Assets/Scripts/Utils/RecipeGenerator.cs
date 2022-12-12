@@ -1,86 +1,91 @@
-using System.Collections;
 using System.Collections.Generic;
+using Menu;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RecipeGenerator : MonoBehaviour
+namespace Utils
 {
-    bool ok = true;
-    int currentDifference = 0, currentTable=-1;
-    private Dictionary<string, int> recipe = new Dictionary<string, int>();
-    private List<string> ingredients = new List<string>
-        { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
-    private string table;
-    [SerializeField] Text recipeText; 
-
-    public List<GameObject> tables = new List<GameObject>();
-
-
-    void Start()
+    /**
+     * Recipe Generator placed on Canvas Object
+     */
+    public class RecipeGenerator : MonoBehaviour
     {
-        recipeText.text = "There are no recipes yet";
-        recipeText.text = recipeGenerator();
-    }
-
-    // void Update()
-    // {
-    //     if (CountDownTimer.startingTime-CountDownTimer.currentTime>3)
-    //     {
-    //         int normalizedValue = (int)(CountDownTimer.startingTime-CountDownTimer.currentTime);
-    //         if(normalizedValue != currentDifference)
-    //         {
-    //             ok = true;
-    //             currentDifference = normalizedValue;
-    //         }
-
-    //         if (normalizedValue%20 == 0 && ok == true)
-    //         {
-    //             recipeText.text = recipGenerator();
-    //             ok = false;
-    //         }
-    //     }
-    // }
-
-    public string recipeGenerator()
-    {
-        string recipeResult = "Recipe:\n";
-        recipe = new Dictionary<string, int>();
-        int randomNumber;
-        foreach (string ing in ingredients)
-        {
-            randomNumber = Random.Range(0, 3);
-            if(randomNumber>0)
-            {
-                recipeResult+=randomNumber + "x " + ing + "\n";
-                recipe[ing] = randomNumber;
-            }
-        }
-        // PrintUsedMap(recipe);
-
-        int tableToPlacePizza = Random.Range(0, 4);
+        private readonly int _difficulty = OptionsMenu.difficultyIdx;
         
-        if(currentTable!=-1)
+        private int _currentTable = -1;
+    
+        private Dictionary<string, int> _recipe = new();
+    
+        private readonly List<string> _ingredients = new() { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
+    
+        [SerializeField] public Text recipeText; 
+
+        public static int numberOfPizza;
+        
+        public List<GameObject> tables = new();
+        
+        private void Start()
         {
-            tables[currentTable].SetActive(false);
-            tables[tableToPlacePizza].SetActive(true);
-            currentTable=tableToPlacePizza;
-        }else
-        {
-            tables[tableToPlacePizza].SetActive(true);
-            currentTable=tableToPlacePizza;
+            numberOfPizza = SetNumberOfPizza();
+            
+            recipeText.text = "There are no recipes yet";
+            recipeText.text = recipeGenerator();
         }
 
-        return recipeResult + "La masa: " + (tableToPlacePizza+1);
-    }
-
-
-    private void PrintUsedMap(Dictionary<string, int> recipe)
-    {
-        string text = " ";
-        foreach (KeyValuePair<string, int> kvp in recipe)
+        private int SetNumberOfPizza()
         {
-            text += string.Format("{0}: {1}, ", kvp.Key, kvp.Value);
+            return _difficulty switch
+            {
+                1 => 1,
+                2 => 3,
+                _ => 4
+            };
         }
-        Debug.Log(text);
+
+        public static void UpdateNumberOfPizza(int value)
+        {
+            numberOfPizza = value;
+        }
+        
+        private int GenerateRandomNumberBasedOnDifficulty()
+        {
+            return _difficulty switch
+            {
+                1 => Random.Range(0, 2),
+                2 => Random.Range(2, 3),
+                _ => Random.Range(3, 5)
+            };
+        }
+    
+        public string recipeGenerator()
+        {
+            var recipeResult = "Recipe:\n";
+            _recipe = new Dictionary<string, int>();
+
+            foreach (var ingredient in _ingredients)
+            {
+                var randomNumber = GenerateRandomNumberBasedOnDifficulty();
+                if (randomNumber <= 0) continue;
+            
+                recipeResult += $"{randomNumber}x {ingredient}\n";
+                _recipe[ingredient] = randomNumber;
+            }
+            //Common.PrintUsedMap(_recipe);
+
+            // var tableToPlacePizza = Random.Range(0, 4);
+            var tableToPlacePizza = 0;
+        
+            if(_currentTable != -1)
+            {
+                tables[_currentTable].SetActive(false);
+                tables[tableToPlacePizza].SetActive(true);
+                _currentTable = tableToPlacePizza;
+            } else {
+                tables[tableToPlacePizza].SetActive(true);
+                _currentTable = tableToPlacePizza;
+            }
+
+            return $"{recipeResult} La masa: {tableToPlacePizza + 1}";
+        }
     }
 }

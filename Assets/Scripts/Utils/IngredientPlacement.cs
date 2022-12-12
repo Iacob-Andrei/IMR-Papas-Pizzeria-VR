@@ -1,37 +1,27 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientPlacement : MonoBehaviour
+namespace Utils
 {
-    private Dictionary<string, int> used = new Dictionary<string, int>();
-    private List<string> ingredients = new List<string>
-        { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
-    
-    [SerializeField] Transform parent;
-    
-
-    private void OnCollisionEnter(Collision collision)
+    public class IngredientPlacement : MonoBehaviour
     {
-        if (ingredients.Contains(collision.gameObject.name))
-        {  
+        private Dictionary<string, int> used = new();
+    
+        private List<string> ingredients = new() { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
+    
+        [SerializeField] Transform parent;
+    
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (!ingredients.Contains(collision.gameObject.name)) return;
+        
             used[collision.gameObject.name] = used.ContainsKey(collision.gameObject.name) ?  used[collision.gameObject.name] + 1 : 1;
-            // PrintUsedMap();
+            
             collision.transform.SetParent(parent);
 
             // freeze position
-            Rigidbody rigidbody = collision.gameObject.GetComponent<Rigidbody>();
-            rigidbody.isKinematic = true;
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
         }
-    }
-
-    private void PrintUsedMap()
-    {
-        string text = " ";
-        foreach (KeyValuePair<string, int> kvp in used)
-        {
-            text += string.Format("{0}: {1}, ", kvp.Key, kvp.Value);
-        } 
-        Debug.Log(text);
     }
 }
