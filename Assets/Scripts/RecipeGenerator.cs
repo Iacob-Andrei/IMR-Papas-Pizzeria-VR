@@ -12,7 +12,6 @@ public class RecipeGenerator : MonoBehaviour
         { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
     private string table;
     [SerializeField] Text recipeText; 
-     
 
     public List<GameObject> tables = new List<GameObject>();
 
@@ -20,39 +19,40 @@ public class RecipeGenerator : MonoBehaviour
     void Start()
     {
         recipeText.text = "There are no recipes yet";
+        recipeText.text = recipeGenerator();
     }
 
-    void Update()
-    {
-        if (CountDownTimer.startingTime-CountDownTimer.currentTime>3)
-            {
-                int normalizedValue = (int)(CountDownTimer.startingTime-CountDownTimer.currentTime);
-                if(normalizedValue != currentDifference)
-                {
-                    ok = true;
-                    currentDifference = normalizedValue;
-                }
+    // void Update()
+    // {
+    //     if (CountDownTimer.startingTime-CountDownTimer.currentTime>3)
+    //     {
+    //         int normalizedValue = (int)(CountDownTimer.startingTime-CountDownTimer.currentTime);
+    //         if(normalizedValue != currentDifference)
+    //         {
+    //             ok = true;
+    //             currentDifference = normalizedValue;
+    //         }
 
-                if (normalizedValue%5 == 0 && ok == true)
-                {
-                    recipeText.text = recipGenerator();
-                    ok = false;
-                }
-            }
-    }
+    //         if (normalizedValue%20 == 0 && ok == true)
+    //         {
+    //             recipeText.text = recipGenerator();
+    //             ok = false;
+    //         }
+    //     }
+    // }
 
-    public string recipGenerator()
+    public string recipeGenerator()
     {
         string recipeResult = "Recipe:\n";
         recipe = new Dictionary<string, int>();
         int randomNumber;
-        foreach (string ing in ingredients){
+        foreach (string ing in ingredients)
+        {
             randomNumber = Random.Range(0, 3);
             if(randomNumber>0)
             {
                 recipeResult+=randomNumber + "x " + ing + "\n";
                 recipe[ing] = randomNumber;
-
             }
         }
         PrintUsedMap(recipe);
@@ -64,11 +64,11 @@ public class RecipeGenerator : MonoBehaviour
             tables[currentTable].SetActive(false);
             tables[tableToPlacePizza].SetActive(true);
             currentTable=tableToPlacePizza;
-        }else{
+        }else
+        {
             tables[tableToPlacePizza].SetActive(true);
             currentTable=tableToPlacePizza;
         }
-
 
         return recipeResult + "La masa: " + (tableToPlacePizza+1);
     }
