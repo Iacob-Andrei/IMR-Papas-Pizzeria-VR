@@ -1,13 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BackToMainMenu : MonoBehaviour
+namespace EndGame
 {
-    public void BackToMain()
+    public class BackToMainMenu : MonoBehaviour
     {
-        SceneManager.LoadScene(0);
+        public void BackToMain()
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

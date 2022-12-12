@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreShow : MonoBehaviour
+namespace EndGame
 {
-    private const int scoreCompute = 93;
-    
-    [SerializeField] Text scoreText; 
-    
-    void Start()
+    public class ScoreShow : MonoBehaviour
     {
-        scoreText.text = scoreCompute.ToString();
+        private const int scoreCompute = 93;
+    
+        [SerializeField] Text scoreText; 
+    
+        void Start()
+        {
+            scoreText.text = scoreCompute.ToString();
+        }
     }
 }
