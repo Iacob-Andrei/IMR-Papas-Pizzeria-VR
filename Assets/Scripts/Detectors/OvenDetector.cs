@@ -8,7 +8,7 @@ namespace Detectors
         
         public GameObject pizza;
         
-        public double time = 0;
+        public static double time = 0;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -23,7 +23,6 @@ namespace Detectors
 
         private void OnTriggerExit(Collider other)
         {
-            // Debug.Log("I'm the trigger, someone has left");
             if (other.name.Contains("pizza"))
             {
                 _hasEntered = false;

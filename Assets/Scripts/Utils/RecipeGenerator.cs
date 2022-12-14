@@ -14,7 +14,7 @@ namespace Utils
         
         private int _currentTable = -1;
     
-        private Dictionary<string, int> _recipe = new();
+        public static Dictionary<string, int> recipe = new();
     
         private readonly List<string> _ingredients = new() { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
     
@@ -60,7 +60,7 @@ namespace Utils
         public string recipeGenerator()
         {
             var recipeResult = "Recipe:\n";
-            _recipe = new Dictionary<string, int>();
+            recipe = new Dictionary<string, int>();
 
             foreach (var ingredient in _ingredients)
             {
@@ -68,7 +68,7 @@ namespace Utils
                 if (randomNumber <= 0) continue;
             
                 recipeResult += $"{randomNumber}x {ingredient}\n";
-                _recipe[ingredient] = randomNumber;
+                recipe[ingredient] = randomNumber;
             }
             //Common.PrintUsedMap(_recipe);
 
