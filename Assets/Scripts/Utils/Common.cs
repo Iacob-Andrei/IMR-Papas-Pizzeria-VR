@@ -18,7 +18,7 @@ namespace Utils
         
         public static IEnumerator WaitFor2Seconds()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
         }
     }
 }
