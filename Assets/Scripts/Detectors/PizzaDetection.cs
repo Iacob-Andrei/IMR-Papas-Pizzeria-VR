@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using EndGame;
+using Menu;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.XR.Interaction.Toolkit;
 using Utils;
 
@@ -26,19 +25,25 @@ namespace Detectors
                 Destroy(xr);
 
                 ScoreGenerator.AddToScore(other.gameObject.GetComponent<IngredientPlacement>().used, RecipeGenerator.recipe,OvenDetector.time);
-                
+
                 if (RecipeGenerator.numberOfPizza == 0)
                 {
-                    WaitSecondsBeforeSceneChange();
-                    EndGameSceneChanger.GetToFinalSceneWhenThereIsNoPizza();
+                    StartCoroutine(Wait2SecondsAndChangeScene());
                 }
-                // generate new recipe
+                else {
+                    GameObject canvas = GameObject.FindGameObjectWithTag("GameCanvas");
+                    if (canvas != null)
+                    {
+                        canvas.GetComponent<RecipeGenerator>().recipeText.text =
+                            canvas.GetComponent<RecipeGenerator>().GeneratePizza();
+                    }
+                }
             }
         }
-
-        private void WaitSecondsBeforeSceneChange()
+        public IEnumerator Wait2SecondsAndChangeScene()
         {
-            StartCoroutine(Common.WaitFor2Seconds());
+            yield return new WaitForSeconds(2f);
+            SceneChanger.GetToFinalScene();
         }
     }
 }
