@@ -1,6 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using EndGame;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.XR.Interaction.Toolkit;
 using Utils;
 
 namespace Detectors
@@ -19,15 +22,16 @@ namespace Detectors
             {
                 _hasEntered = true;
                 RecipeGenerator.UpdateNumberOfPizza(RecipeGenerator.numberOfPizza - 1);
+                XRGrabInteractable xr = other.gameObject.GetComponent<XRGrabInteractable>();
+                Destroy(xr);
+
+                ScoreGenerator.AddToScore(other.gameObject.GetComponent<IngredientPlacement>().used, RecipeGenerator.recipe,OvenDetector.time);
                 
                 if (RecipeGenerator.numberOfPizza == 0)
                 {
                     WaitSecondsBeforeSceneChange();
                     EndGameSceneChanger.GetToFinalSceneWhenThereIsNoPizza();
                 }
-                
-                //Debug.Log($"Pizza trigger entered. {numberOfPizza} pizza remaining.");
-
                 // generate new recipe
             }
         }
