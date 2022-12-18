@@ -11,25 +11,28 @@ namespace Utils
     public class RecipeGenerator : MonoBehaviour
     {
         private readonly int _difficulty = OptionsMenu.difficultyIdx;
-        
+
         private int _currentTable = -1;
-    
+
         public static Dictionary<string, int> recipe = new();
-    
-        private readonly List<string> _ingredients = new() { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
-    
-        [SerializeField] public Text recipeText; 
+
+        private readonly List<string> _ingredients = new()
+            { "salami", "olive", "tomato", "mushroom", "mozzarella", "pepper" };
+
+        [SerializeField] public Text recipeText;
 
         public static int numberOfPizza;
-        
+
         public List<GameObject> tables = new();
-        
+
+        private List<int> _availabeTables = new() { 0, 1}; // add 2 and 3
+
         private void Start()
         {
             numberOfPizza = SetNumberOfPizza();
             
             recipeText.text = "There are no recipes yet";
-            recipeText.text = recipeGenerator();
+            recipeText.text = GeneratePizza();
         }
 
         private int SetNumberOfPizza()
@@ -57,7 +60,7 @@ namespace Utils
             };
         }
     
-        public string recipeGenerator()
+        public string GeneratePizza()
         {
             var recipeResult = "Recipe:\n";
             recipe = new Dictionary<string, int>();
@@ -70,11 +73,10 @@ namespace Utils
                 recipeResult += $"{randomNumber}x {ingredient}\n";
                 recipe[ingredient] = randomNumber;
             }
-            //Common.PrintUsedMap(_recipe);
 
-            // var tableToPlacePizza = Random.Range(0, 4);
-            var tableToPlacePizza = 0;
-        
+            var tableToPlacePizza = _availabeTables[Random.Range(0,_availabeTables.Count)];
+            _availabeTables.Remove(tableToPlacePizza);
+            
             if(_currentTable != -1)
             {
                 tables[_currentTable].SetActive(false);
@@ -85,7 +87,7 @@ namespace Utils
                 _currentTable = tableToPlacePizza;
             }
 
-            return $"{recipeResult} La masa: {tableToPlacePizza + 1}";
+            return $"{recipeResult} At table: {tableToPlacePizza + 1}";
         }
     }
 }

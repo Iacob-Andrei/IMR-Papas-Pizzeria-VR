@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 45492048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c2d4b5f0a915e644bae1b25eaba5f93, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6c0ffbcf184ad28cd3cb71308dfde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &671127168
@@ -258,7 +258,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 45492050}
-        m_TargetAssemblyTypeName: BackToMainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: Menu.SceneChanger, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
         m_Arguments:

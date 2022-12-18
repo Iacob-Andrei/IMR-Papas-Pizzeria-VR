@@ -23,8 +23,6 @@ namespace Utils
             rb.isKinematic = true;
             BoxCollider box = collision.gameObject.GetComponent<BoxCollider>();
             Destroy(box);
-            
-            Common.PrintUsedMap(used);
         }
     }
 }

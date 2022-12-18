@@ -15,10 +15,5 @@ namespace Utils
             }
             Debug.Log(text);
         }
-        
-        public static IEnumerator WaitFor2Seconds()
-        {
-            yield return new WaitForSeconds(5);
-        }
     }
 }
