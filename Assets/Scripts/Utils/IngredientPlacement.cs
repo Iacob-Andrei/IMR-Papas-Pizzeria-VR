@@ -15,7 +15,6 @@ namespace Utils
         {
             if (!ingredients.Contains(collision.gameObject.name.Split(" ")[0])) return;
 
-
             used[collision.gameObject.name] = used.ContainsKey(collision.gameObject.name) ?  used[collision.gameObject.name] + 1 : 1;
             
             collision.transform.SetParent(parent);

@@ -23,7 +23,7 @@ namespace Detectors
                 RecipeGenerator.UpdateNumberOfPizza(RecipeGenerator.numberOfPizza - 1);
                 XRGrabInteractable xr = other.gameObject.GetComponent<XRGrabInteractable>();
                 Destroy(xr);
-
+                
                 ScoreGenerator.AddToScore(other.gameObject.GetComponent<IngredientPlacement>().used, RecipeGenerator.recipe,OvenDetector.time);
 
                 if (RecipeGenerator.numberOfPizza == 0)
@@ -40,6 +40,7 @@ namespace Detectors
                 }
             }
         }
+
         public IEnumerator Wait2SecondsAndChangeScene()
         {
             yield return new WaitForSeconds(2f);

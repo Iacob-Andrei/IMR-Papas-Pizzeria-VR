@@ -30,7 +30,6 @@ namespace Utils
         private void Start()
         {
             numberOfPizza = SetNumberOfPizza();
-            
             recipeText.text = "There are no recipes yet";
             recipeText.text = GeneratePizza();
         }
