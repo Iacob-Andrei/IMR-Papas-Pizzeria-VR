@@ -25,7 +25,7 @@ namespace Utils
 
         public List<GameObject> tables = new();
 
-        private List<int> _availabeTables = new() { 0, 1}; // add 2 and 3
+        private List<int> _availabeTables = new() { 0, 1, 2, 3};
 
         private void Start()
         {

@@ -12,7 +12,6 @@ namespace Menu
       
       public void QuitGame()
       {
-         Debug.Log("Application quited!");
          Application.Quit();
       }
    }

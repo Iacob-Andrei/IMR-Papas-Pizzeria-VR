@@ -13,7 +13,6 @@ namespace Utils
             {
                 text += $"{key}: {value}, ";
             }
-            Debug.Log(text);
         }
     }
 }

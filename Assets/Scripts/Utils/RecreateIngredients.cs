@@ -123,11 +123,7 @@ namespace Utils
             foreach(GameObject el in tom){
                 Destroy(el);
             }
-
-            foreach(GameObject el in allTypeIngredients){
-                Debug.Log(el.name);
-            }
-
+            
             Destroy(pizzaClone);
             genTenOfEachStatic();
         }

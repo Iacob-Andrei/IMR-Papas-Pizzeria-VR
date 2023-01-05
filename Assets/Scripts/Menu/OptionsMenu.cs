@@ -23,15 +23,12 @@ namespace Menu
             switch (difficultyIndex)
             {
                 case 0:
-                    Debug.Log("Difficulty set on: EASY");
                     difficultyIdx = 1;
                     break;
                 case 1:
-                    Debug.Log("Difficulty set on: MEDIUM");
                     difficultyIdx = 2;
                     break;
                 default:
-                    Debug.Log("Difficulty set on: HARD");
                     difficultyIdx = 3;
                     break;
             }

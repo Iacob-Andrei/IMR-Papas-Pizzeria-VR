@@ -16,7 +16,6 @@ namespace Detectors
             {
                 if (!other.name.Contains("pizza")) return;
                 
-                Debug.Log("Pizza in oven");
                 _hasEntered = true;
             }
         }
@@ -26,8 +25,6 @@ namespace Detectors
             if (other.name.Contains("pizza"))
             {
                 _hasEntered = false;
-                Debug.Log("Pizza left oven");
-                Debug.Log(time);
             }
         }
 
